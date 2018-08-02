@@ -1,0 +1,43 @@
+<ion-menu [content]="content">
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>Menu Administrador</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <ion-list>
+        <button ion-item (click)="logOut()">
+          Cerrar session
+        </button>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+  
+  <ion-nav id="nav" #content [root]="rootPage"></ion-nav>
+  <ion-header>
+    <ion-navbar>
+      <ion-title>
+          <button ion-button menuToggle>
+              <ion-icon name="menu"></ion-icon>
+              Menu                 
+            </button>
+      </ion-title>
+    </ion-navbar>
+  </ion-header>
+
+<ion-content padding>
+    <ion-fab top right edge>
+        <button ion-fab mini><ion-icon name="add"></ion-icon></button>
+        <ion-fab-list>
+          <button (click)="nuevoTipo()" ion-fab><ion-icon name="ios-keypad-outline"></ion-icon></button>
+          <button (click)="nuevoLicor()" ion-fab><ion-icon name="ios-beer-outline"></ion-icon></button>
+        </ion-fab-list>
+      </ion-fab>
+
+        <ion-item-group *ngFor="let tipo of tipos_licor">
+          <ion-item-divider color="light" >{{tipo.nombre}}</ion-item-divider>
+          <div *ngFor="let licor of licores" >
+          <ion-item (click)="verLicor(licor.id)" *ngIf="licor.fk_tipolicor == tipo.id" >{{ licor.nombre }}</ion-item>
+        </div>
+        </ion-item-group>
+</ion-content>
