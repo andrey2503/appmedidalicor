@@ -35,7 +35,7 @@
       </ion-fab>
 
         <ion-item-group *ngFor="let tipo of tipos_licor">
-          <ion-item-divider color="light" >{{tipo.nombre}}</ion-item-divider>
+          <ion-item-divider color="light" >{{ tipo.rowid }} id {{tipo.nombre}}</ion-item-divider>
           <div *ngFor="let licor of licores" >
           <ion-item (click)="verLicor(licor.id)" *ngIf="licor.fk_tipolicor == tipo.id" >{{ licor.nombre }}</ion-item>
         </div>

@@ -35,7 +35,7 @@ export class DbalcoholProvider {
         .then(() => console.log("creadas tablas en then crea tablas"))
         .catch(e => alert("error uno"+e));
 
-        this.database.executeSql('create table if not exists Tipo_licor(id INT PRIMARY KEY, nombre TEXT)', [])
+        this.database.executeSql('create table if not exists Tipo_licor(nombre TEXT)', [])
         .then(() => console.log("creadas tablas en then crea tablas"))
         .catch(e => alert("error dos "+e));
       
@@ -109,7 +109,7 @@ export class DbalcoholProvider {
   }// abrir session
 
   tiposLicor(){
-    let sql = 'SELECT * FROM Tipo_licor ';
+    let sql = 'SELECT rowid,nombre FROM Tipo_licor ';
     return this.database.executeSql(sql, [])
     .then(response => {
       let tasks = [];
