@@ -10,11 +10,13 @@ import { DbalcoholProvider } from '../providers/dbalcohol/dbalcohol';
 import { SQLite } from '@ionic-native/sqlite';
 import { HttpClientModule } from '@angular/common/http';
 import { TipoLicorPage } from '../pages/tipo-licor/tipo-licor';
+import { AgregarLicorCategoriaPage } from '../pages/agregar-licor-categoria/agregar-licor-categoria';
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
-    TipoLicorPage
+    TipoLicorPage,
+    AgregarLicorCategoriaPage
   ],
   imports: [
     BrowserModule,
@@ -25,7 +27,8 @@ import { TipoLicorPage } from '../pages/tipo-licor/tipo-licor';
   entryComponents: [
     MyApp,
     HomePage,
-    TipoLicorPage
+    TipoLicorPage,
+    AgregarLicorCategoriaPage
   ],
   providers: [
     StatusBar,

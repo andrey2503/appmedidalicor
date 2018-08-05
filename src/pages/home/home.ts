@@ -4,6 +4,8 @@ import { NavController } from 'ionic-angular';
 import { DbalcoholProvider } from '../../providers/dbalcohol/dbalcohol';
 import { LoginPage } from '../login/login';
 import { TipoLicorPage } from '../tipo-licor/tipo-licor';
+import { AgregarLicorCategoriaPage } from '../agregar-licor-categoria/agregar-licor-categoria';
+
 
 @Component({
   selector: 'page-home',
@@ -11,15 +13,17 @@ import { TipoLicorPage } from '../tipo-licor/tipo-licor';
 })
 export class HomePage {
   public tipos_licor:any;
+  public licores_categorias:any;
   constructor(
     public navCtrl: NavController,
     private dbLicor:DbalcoholProvider
   ) {
     this.tipos_licor=[];
+    this.licores_categorias=[];
   }
 
   ionViewWillEnter() {
-   this.cargarTiposLicores();
+   this.cargarCategoriasLicores();
   }
   ionViewDidLoad() {
     console.log('ionViewDidLoad LoginPage');
@@ -32,6 +36,15 @@ export class HomePage {
     });
   }// fin de cargarTiposLicores
 
+  cargarCategoriasLicores(){
+    this.dbLicor.categoriasLicor().then(data=>{
+      this.licores_categorias=data;
+      this.cargarTiposLicores();
+    });
+  }// fin de cargarCategoriasLicores()
+
+  cargar
+
   logOut(){
     this.dbLicor.cerrarSession();
     this.navCtrl.setRoot(LoginPage); 
@@ -42,8 +55,12 @@ export class HomePage {
   }// fin de nuevoTipo
 
   nuevoLicor(){
-
+    this.navCtrl.push(AgregarLicorCategoriaPage,{'tipos_licor':this.tipos_licor});
   }// fin de nuevoLicor
+
+  verLicor(){
+
+  }//
  
 
 }
