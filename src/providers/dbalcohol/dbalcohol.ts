@@ -42,6 +42,10 @@ export class DbalcoholProvider {
         this.database.executeSql('create table if not exists licor_categoria(fk_tipolicor INT,nombre TEXT)', [])
         .then(() => console.log("creadas tablas en then crea tablas"))
         .catch(e => alert("error tres "+e));
+
+        this.database.executeSql('create table if not exists sub_licor_categoria(fk_categorialicor INT,nombre TEXT)', [])
+        .then(() => console.log("creadas tablas en then crea tablas"))
+        .catch(e => alert("error cuatro "+e));
       
   }// fin de crear tabla
 
@@ -151,5 +155,25 @@ export class DbalcoholProvider {
       return Promise.resolve({agregar:true});
     });
   }// fin de agregarTipoLicor
+
+  agregarsubLicor(fk_categorialicor:any,nombre:any){
+    let sql = 'INSERT INTO sub_licor_categoria(fk_categorialicor,nombre) VALUES(?,?)';
+    return this.database.executeSql(sql, [fk_categorialicor,nombre]).then(data=>{
+      return Promise.resolve({agregar:true});
+    });
+  }// fin de agregarTipoLicor
+
+  getsubcategoriasLicor(id){
+    let sql = 'SELECT rowid,nombre,fk_categorialicor FROM sub_licor_categoria WHERE fk_categorialicor=?';
+    return this.database.executeSql(sql, [id])
+    .then(response => {
+      let tasks = [];
+      for (let index = 0; index < response.rows.length; index++) {
+        tasks.push( response.rows.item(index) );
+      }
+      return Promise.resolve( tasks );
+    })
+    .catch(error => Promise.reject(error));
+  }// fin de categoriasLicor
 
 }// fin de la clase

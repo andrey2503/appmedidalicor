@@ -11,12 +11,16 @@ import { SQLite } from '@ionic-native/sqlite';
 import { HttpClientModule } from '@angular/common/http';
 import { TipoLicorPage } from '../pages/tipo-licor/tipo-licor';
 import { AgregarLicorCategoriaPage } from '../pages/agregar-licor-categoria/agregar-licor-categoria';
+import { ListaSubLicoresPage } from '../pages/lista-sub-licores/lista-sub-licores';
+import { AgregarSubLicorPage } from '../pages/agregar-sub-licor/agregar-sub-licor';
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
     TipoLicorPage,
-    AgregarLicorCategoriaPage
+    AgregarLicorCategoriaPage,
+    ListaSubLicoresPage,
+    AgregarSubLicorPage
   ],
   imports: [
     BrowserModule,
@@ -28,7 +32,9 @@ import { AgregarLicorCategoriaPage } from '../pages/agregar-licor-categoria/agre
     MyApp,
     HomePage,
     TipoLicorPage,
-    AgregarLicorCategoriaPage
+    AgregarLicorCategoriaPage,
+    ListaSubLicoresPage,
+    AgregarSubLicorPage
   ],
   providers: [
     StatusBar,

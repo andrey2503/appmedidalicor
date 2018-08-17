@@ -5,7 +5,7 @@ import { DbalcoholProvider } from '../../providers/dbalcohol/dbalcohol';
 import { LoginPage } from '../login/login';
 import { TipoLicorPage } from '../tipo-licor/tipo-licor';
 import { AgregarLicorCategoriaPage } from '../agregar-licor-categoria/agregar-licor-categoria';
-
+import { ListaSubLicoresPage } from '../lista-sub-licores/lista-sub-licores';
 
 @Component({
   selector: 'page-home',
@@ -58,8 +58,8 @@ export class HomePage {
     this.navCtrl.push(AgregarLicorCategoriaPage,{'tipos_licor':this.tipos_licor});
   }// fin de nuevoLicor
 
-  verLicor(){
-
+  verLicor(id){
+    this.navCtrl.push(ListaSubLicoresPage,{'id':id});
   }//
  
 
