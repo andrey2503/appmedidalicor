@@ -69,20 +69,25 @@ export class LoginPage {
   
   }// login
 
-  // checkRootPage(){
-  //   this.dbLicor.checkUserDefault().then(data=>{
-  //     alert("chch root page");
-  //     alert(data.length);
-  //     if(data.length > 0 ){
-  //       if(data[0].session == '1'){
-  //         this.navCtrl.setRoot(HomePage); 
-  //       }
-  //     }// fin de if
-  //     else{
-  //       this.dbLicor.create('admin','admin');
-  //     }
-  //   });
-  // }//
+//   checkRootPage(){
+//     this.dbLicor.checkUserDefault().then(data=>{
+//       alert("chch root page");
+//       alert(data.length);
+//       if(data.length > 0 ){
+//         if(data[0].session == '1'){
+//           this.navCtrl.setRoot(HomePage); 
+//         }
+//       }// fin de if
+//       else{
+//         this.dbLicor.create('admin','admin');
+//       }
+//     });
+//   }//
+
+//   ionViewWillEnter() {
+//     console.log("llamada en home");
+//     this.checkRootPage();
+// }
 
   showLoading() {
     this.loading = this.loadingCtrl.create({

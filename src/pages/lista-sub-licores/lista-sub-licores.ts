@@ -29,8 +29,13 @@ export class ListaSubLicoresPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ListaSubLicoresPage');
-    this.cargarSubListaLicores(this.id);
+    // this.cargarSubListaLicores(this.id);
   }
+  ionViewWillEnter() {
+    console.log("llamada en home");
+    alert(this.id);
+    this.cargarSubListaLicores(this.id);
+}
 
   cargarSubListaLicores(id){
     this.dbLicor.getsubcategoriasLicor(id).then(data=>{
