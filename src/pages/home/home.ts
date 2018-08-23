@@ -58,8 +58,8 @@ export class HomePage {
     this.navCtrl.push(AgregarLicorCategoriaPage,{'tipos_licor':this.tipos_licor});
   }// fin de nuevoLicor
 
-  verLicor(id){
-    this.navCtrl.push(ListaSubLicoresPage,{'id':id});
+  verLicor(id,nombre){
+    this.navCtrl.push(ListaSubLicoresPage,{'id':id,'nombre':nombre});
   }//
  
 

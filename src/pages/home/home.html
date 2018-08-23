@@ -17,7 +17,7 @@
   <ion-header>
     <ion-navbar>
       <ion-title>
-          <button ion-button menuToggle>
+          <button ion-button menuToggle class="white">
               <ion-icon name="menu"></ion-icon>
               Menu                 
             </button>
@@ -34,10 +34,22 @@
         </ion-fab-list>
       </ion-fab>
 
-        <ion-item-group *ngFor="let tipo of tipos_licor">
-          <ion-item-divider color="light" >{{ tipo.rowid }} id {{tipo.nombre}}</ion-item-divider>
-          <div *ngFor="let licor of licores_categorias" >
-          <ion-item (click)="verLicor(licor.rowid)" *ngIf="licor.fk_tipolicor == tipo.rowid" >{{ licor.nombre }}</ion-item>
-        </div>
-        </ion-item-group>
+      <ion-card *ngFor="let tipo of tipos_licor">
+        <ion-card-header>
+          <ion-item-divider color="light" ><h1>{{tipo.nombre}}</h1></ion-item-divider>
+          
+        </ion-card-header>
+        <ion-card-content>
+            <div *ngFor="let licor of licores_categorias" >
+                <ion-item  *ngIf="licor.fk_tipolicor == tipo.rowid" >{{ licor.nombre }}
+  
+                    <button class="btn" item-end  (click)="verLicor(licor.rowid,licor.nombre)">
+                        <ion-icon name="beer" ></ion-icon> /  ver
+                     </button>
+                </ion-item>
+                
+              </div>
+        </ion-card-content>
+      </ion-card>
+
 </ion-content>

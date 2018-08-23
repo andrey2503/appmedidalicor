@@ -18,6 +18,7 @@ export class ListaSubLicoresPage {
   public id:any;
   public sublicores:any;
   public nombre:any;
+  public nombrelicor:any;
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
@@ -25,6 +26,7 @@ export class ListaSubLicoresPage {
   ) {
     this.sublicores=[];
     this.id= this.navParams.get('id');
+    this.nombrelicor= this.navParams.get('nombre');
   }
 
   ionViewDidLoad() {

@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>listaSubLicoresPage</ion-title>
+    <ion-title class="white">Lista de {{ nombrelicor }}</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -23,9 +23,27 @@
     </ion-fab-list>
   </ion-fab>
 
-  <ion-list no-lines>
+  <!-- <ion-list>
     <button ion-item *ngFor="let item of sublicores" (click)="itemSelected(item)">
       {{ item.nombre }}
     </button> 
-  </ion-list>
+  </ion-list> -->
+
+  <ion-card>
+    <ion-card-header>
+      Lista de licores
+    </ion-card-header>
+    <ion-list>
+        <ion-card-content>
+            <!-- Add card content here! -->
+      <ion-item *ngFor="let item of sublicores">
+        {{item.nombre}}
+        <button class="btn" item-end  (click)="itemSelected(item.id)">
+             <ion-icon name="beer" ></ion-icon> /  ver
+          </button>
+      </ion-item>
+    </ion-card-content>
+      
+    </ion-list>
+  </ion-card>
 </ion-content>

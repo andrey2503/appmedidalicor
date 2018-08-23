@@ -43,10 +43,10 @@ export class LoginPage {
           if(data.length > 0 ){
             this.dbLicor.login(this.user,this.password).then(data=>{
               this.crendeciales=data;
-              alert(this.crendeciales[0].session);
+              // alert(this.crendeciales[0].session);
               if(data.length > 0){
-                alert("acceso");
-                this.dbLicor.abrirSession();
+                // alert("acceso");
+                // this.dbLicor.abrirSession();
                 this.navCtrl.setRoot(HomePage); 
               }else{
                 alert("error");
