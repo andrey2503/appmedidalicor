@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams,ToastController } from 'ionic-angular';
 
 /**
  * Generated class for the AgregarSubLicorPage page.
@@ -20,20 +20,31 @@ export class AgregarSubLicorPage {
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
-    private dbLicor:DbalcoholProvider
+    private dbLicor:DbalcoholProvider,
+    public toastCtrl: ToastController
   ) {
     this.id= this.navParams.get('id');
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad AgregarSubLicorPage');
-    alert(this.id);
+    // alert(this.id);
   }
 
   agregarSubLicor(){
     this.dbLicor.agregarsubLicor(this.id,this.nombre).then(data=>{
-      alert(data);
+      if(data){
+        this.mensaje("Licor agregado exitosamente");
+      }
     });
   }//agregarsublicor
+
+  mensaje(texto:any){
+    let toast = this.toastCtrl.create({
+      message: texto,
+      duration: 3000
+    });
+    toast.present();
+  }// fin de mensaje
 
 }

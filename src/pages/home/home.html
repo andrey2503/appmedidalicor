@@ -51,5 +51,28 @@
               </div>
         </ion-card-content>
       </ion-card>
+      <!-- ejemplo lista -->
+
+      
+
+   
+
+
+        <ion-item-group *ngFor="let tipo of tipos_licor">
+          <ion-item-divider color="light"><h1>{{tipo.nombre}}</h1>
+            <button item-end color="light" icon-only="" ion-button="" class=" button button-ios button-default button-default-ios button-ios-light"><span class="button-inner">
+                <ion-icon name="build" role="img" class="icon icon-ios ion-ios-arrow-down" aria-label="ios-build"></ion-icon>
+              </span><div class="button-effect"></div>
+            </button>
+          </ion-item-divider>
+          <div *ngFor="let licor of licores_categorias">
+            <ion-item  *ngIf="licor.fk_tipolicor == tipo.rowid">
+              {{ licor.nombre }}
+              <button class="btn" item-end  (click)="verLicor(licor.rowid,licor.nombre)">
+                  <ion-icon name="beer" ></ion-icon> /  ver
+               </button>
+            </ion-item>
+          </div>
+        </ion-item-group>
 
 </ion-content>

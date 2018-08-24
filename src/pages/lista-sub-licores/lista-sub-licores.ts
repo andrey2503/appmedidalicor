@@ -35,7 +35,7 @@ export class ListaSubLicoresPage {
   }
   ionViewWillEnter() {
     console.log("llamada en home");
-    alert(this.id);
+    // alert(this.id);
     this.cargarSubListaLicores(this.id);
 }
 
