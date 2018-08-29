@@ -36,7 +36,12 @@
 
       <ion-card *ngFor="let tipo of tipos_licor">
         <ion-card-header>
-          <ion-item-divider color="light" ><h1>{{tipo.nombre}}</h1></ion-item-divider>
+          <ion-item-divider color="light" ><h1>{{tipo.nombre}}</h1>
+            <button item-end color="light" icon-only="" ion-button="" class=" button button-ios button-default button-default-ios button-ios-light"><span class="button-inner">
+              <ion-icon name="build" role="img" class="icon icon-ios ion-ios-arrow-down" aria-label="ios-build"></ion-icon>
+            </span><div class="button-effect"></div>
+          </button>
+          </ion-item-divider>
           
         </ion-card-header>
         <ion-card-content>

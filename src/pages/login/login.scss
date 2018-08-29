@@ -1,15 +1,16 @@
 page-login {
  
     .login-content {
-      background: #56CA96;
-   
+      // background: rgb(25, 4, 66);
+      background-image: url(../assets/imgs/bg.jpg);
       .logo-row {
         padding-top: 50px;
         padding-bottom: 20px;
       }
    
       .login-box {
-        background: #399F8B;
+        background: rgba(62, 124, 218,0.8);
+        // background: rgba(255, 255, 255,0.8);
         padding: 20px 20px 0px 20px;
         margin-top: 30px;
       }
@@ -40,7 +41,7 @@ page-login {
        }
    
        .submit-btn {
-         background: #51CFB1;
+         background: rgba(43, 117, 228, 0.8);
          border-radius: 30px !important;
          border: 1px solid #ffffff;
        }
