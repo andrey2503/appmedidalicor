@@ -20,25 +20,33 @@
           <button ion-button menuToggle class="white">
               <ion-icon name="menu"></ion-icon>
               Menu                 
+            </button >
+            
+            <button item-end ion-button top right (click)="nuevoTipo()"> 
+              <ion-icon name="ios-add-outline"></ion-icon>
             </button>
       </ion-title>
     </ion-navbar>
   </ion-header>
 
 <ion-content padding>
-    <ion-fab top right edge>
+    <!-- <ion-fab top right edge>
         <button ion-fab mini><ion-icon name="add"></ion-icon></button>
         <ion-fab-list>
           <button (click)="nuevoTipo()" ion-fab><ion-icon name="ios-keypad-outline"></ion-icon></button>
           <button (click)="nuevoLicor()" ion-fab><ion-icon name="ios-beer-outline"></ion-icon></button>
         </ion-fab-list>
-      </ion-fab>
+      </ion-fab> -->
 
       <ion-card *ngFor="let tipo of tipos_licor">
         <ion-card-header>
           <ion-item-divider color="light" ><h1>{{tipo.nombre}}</h1>
+            <button (click)="nuevoLicor(tipo.nombre,tipo.rowid )" item-end color="light" icon-only="" ion-button="" class=" button button-ios button-default button-default-ios button-ios-light"><span class="button-inner">
+              <ion-icon ios="ios-add" md="md-add"></ion-icon>
+            </span><div class="button-effect"></div>
+          </button>
             <button item-end color="light" icon-only="" ion-button="" class=" button button-ios button-default button-default-ios button-ios-light"><span class="button-inner">
-              <ion-icon name="build" role="img" class="icon icon-ios ion-ios-arrow-down" aria-label="ios-build"></ion-icon>
+              <ion-icon name="build"></ion-icon>
             </span><div class="button-effect"></div>
           </button>
           </ion-item-divider>
