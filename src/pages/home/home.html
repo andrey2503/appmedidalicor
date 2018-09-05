@@ -21,10 +21,13 @@
               <ion-icon name="menu"></ion-icon>
               Menu                 
             </button >
-            
-            <button item-end ion-button top right (click)="nuevoTipo()"> 
-              <ion-icon name="ios-add-outline"></ion-icon>
+            <button (click)="nuevoTipo()" item-end color="light" icon-only="" ion-button="" class=" button button-ios button-default button-default-ios button-ios-light"><span class="button-inner">
+                <ion-icon ios="ios-add" md="md-add"></ion-icon>
+              </span><div class="button-effect"></div>
             </button>
+            <!-- <button item-end ion-button top right (click)="nuevoTipo()"> 
+              <ion-icon name="ios-add-outline"></ion-icon>
+            </button> -->
       </ion-title>
     </ion-navbar>
   </ion-header>
