@@ -17,14 +17,15 @@
   <ion-header>
     <ion-navbar>
       <ion-title>
-          <button ion-button menuToggle class="white">
-              <ion-icon name="menu"></ion-icon>
-              Menu                 
-            </button >
-            <button (click)="nuevoTipo()" item-end color="light" icon-only="" ion-button="" class=" button button-ios button-default button-default-ios button-ios-light"><span class="button-inner">
-                <ion-icon ios="ios-add" md="md-add"></ion-icon>
-              </span><div class="button-effect"></div>
-            </button>
+        <button ion-button menuToggle class="white left">
+          <ion-icon name="menu"></ion-icon>
+          Menu                 
+        </button >
+        
+        <button (click)="nuevoTipo()" item-end right color="light" icon-only="" ion-button="" class="rigth button button-ios button-default button-default-ios button-ios-light"><span class="button-inner">
+            <ion-icon ios="ios-add" md="md-add"></ion-icon>
+          </span><div class="button-effect"></div>
+        </button>
             <!-- <button item-end ion-button top right (click)="nuevoTipo()"> 
               <ion-icon name="ios-add-outline"></ion-icon>
             </button> -->
@@ -33,13 +34,6 @@
   </ion-header>
 
 <ion-content padding>
-    <!-- <ion-fab top right edge>
-        <button ion-fab mini><ion-icon name="add"></ion-icon></button>
-        <ion-fab-list>
-          <button (click)="nuevoTipo()" ion-fab><ion-icon name="ios-keypad-outline"></ion-icon></button>
-          <button (click)="nuevoLicor()" ion-fab><ion-icon name="ios-beer-outline"></ion-icon></button>
-        </ion-fab-list>
-      </ion-fab> -->
 
       <ion-card *ngFor="let tipo of tipos_licor">
         <ion-card-header>
@@ -68,11 +62,6 @@
         </ion-card-content>
       </ion-card>
       <!-- ejemplo lista -->
-
-      
-
-   
-
 
         <!-- <ion-item-group *ngFor="let tipo of tipos_licor">
           <ion-item-divider color="light"><h1>{{tipo.nombre}}</h1>

@@ -72,12 +72,14 @@ export class HomePage {
         {
           text: 'Guardar',
           handler: data => {
-            alert('Saved clicked'+data.nombre);
+            // alert('Saved clicked'+data.nombre);
+            
             this.agregarTipoLicor(data.nombre);
           }
         }
       ]
     });
+  
     prompt.present();
   }// fin de nuevoTipo
 
@@ -91,6 +93,16 @@ export class HomePage {
           name: 'nombre',
           placeholder: 'Nombre'
         },
+          {
+            type:'radio',
+            label:'something1',
+            value:'something1'
+        },
+        {
+            type:'radio',
+            label:'something2',
+            value:'something2'
+        }
       ],
       buttons: [
         {
@@ -103,10 +115,23 @@ export class HomePage {
           text: 'Guardar',
           handler: data => {
             alert('Saved clicked'+data.nombre);
+            alert(data.value);
             this.agregarCategoriaLicor(id,data.nombre);
           }
         }
       ]
+    });
+    prompt.addInput({
+      type: 'radio',
+      label: 'Botella',
+      value: 'botella',
+      checked: true
+    });
+    prompt.addInput({
+      type: 'radio',
+      label: 'Litro',
+      value: 'litro',
+      checked: false
     });
     prompt.present();
   }// fin de nuevoLicor
