@@ -35,6 +35,27 @@
 
 <ion-content padding>
 
+    <div [class]="claseModal">
+        <div class="content-modal">
+            <h4 class="titulo-modal">Agregar licor para {{nombreDeTipo}}</h4>
+            <ion-item>
+                <ion-label floating>Nombre</ion-label>
+                <ion-input type="text" [(ngModel)]="nombreNuevoLicor"></ion-input>
+              </ion-item>
+              <ion-item>
+                  <ion-label>Envase</ion-label>
+              <ion-select [(ngModel)]="envase">
+                  <ion-option value="1">Botella</ion-option>
+                  <ion-option value="2">Litro</ion-option>
+                </ion-select>
+              </ion-item>
+              <br>
+              <br>
+              <button ion-button color="light"  (click)="quitarModal()">Cancelar</button>
+              <button ion-button color="light" (click)="agregarNuevoLicor()">Agregar</button>
+        </div>
+      </div>
+<!-- modal -->
       <ion-card *ngFor="let tipo of tipos_licor">
         <ion-card-header>
           <ion-item-divider color="light" ><h1>{{tipo.nombre}}</h1>
@@ -50,15 +71,25 @@
           
         </ion-card-header>
         <ion-card-content>
+            <ion-item-divider color="light" >Botellas</ion-item-divider>
             <div *ngFor="let licor of licores_categorias" >
-                <ion-item  *ngIf="licor.fk_tipolicor == tipo.rowid" >{{ licor.nombre }}
-  
+                <ion-item  *ngIf="licor.fk_tipolicor == tipo.rowid && licor.envase==1" >
+                  {{ licor.nombre }}
                     <button class="btn" item-end  (click)="verLicor(licor.rowid,licor.nombre)">
                         <ion-icon name="beer" ></ion-icon> /  ver
                      </button>
                 </ion-item>
-                
               </div>
+              <ion-item-divider color="light" >Litros</ion-item-divider>
+              <div *ngFor="let licor of licores_categorias" >
+                  <ion-item  *ngIf="licor.fk_tipolicor == tipo.rowid && licor.envase==2" >
+                    {{ licor.nombre }}
+                      <button class="btn" item-end  (click)="verLicor(licor.rowid,licor.nombre)">
+                          <ion-icon name="beer" ></ion-icon> /  ver
+                       </button>
+                  </ion-item>
+                </div>
+
         </ion-card-content>
       </ion-card>
       <!-- ejemplo lista -->

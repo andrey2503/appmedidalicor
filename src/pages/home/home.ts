@@ -14,6 +14,9 @@ import { ListaSubLicoresPage } from '../lista-sub-licores/lista-sub-licores';
 export class HomePage {
   public tipos_licor:any;
   public licores_categorias:any;
+  public nombreNuevoLicor:any;
+  public envase:any;
+  claseModal: string = 'quitar-modal';
   constructor(
     public navCtrl: NavController,
     private dbLicor:DbalcoholProvider,
@@ -83,62 +86,31 @@ export class HomePage {
     prompt.present();
   }// fin de nuevoTipo
 
-  nuevoLicor(nombreLicor,id){
-    // this.navCtrl.push(AgregarLicorCategoriaPage,{'tipos_licor':this.tipos_licor});
-    const prompt = this.alertCtrl.create({
-      title: 'Nuevo Licor de '+nombreLicor,
-      message: "Ingrese el nombre",
-      inputs: [
-        {
-          name: 'nombre',
-          placeholder: 'Nombre'
-        },
-          {
-            type:'radio',
-            label:'something1',
-            value:'something1'
-        },
-        {
-            type:'radio',
-            label:'something2',
-            value:'something2'
-        }
-      ],
-      buttons: [
-        {
-          text: 'Cancelar',
-          handler: data => {
-            alert('Cancel clicked'+data);
-          }
-        },
-        {
-          text: 'Guardar',
-          handler: data => {
-            alert('Saved clicked'+data.nombre);
-            alert(data.value);
-            this.agregarCategoriaLicor(id,data.nombre);
-          }
-        }
-      ]
-    });
-    prompt.addInput({
-      type: 'radio',
-      label: 'Botella',
-      value: 'botella',
-      checked: true
-    });
-    prompt.addInput({
-      type: 'radio',
-      label: 'Litro',
-      value: 'litro',
-      checked: false
-    });
-    prompt.present();
-  }// fin de nuevoLicor
+
+  quitarModal(){
+    // alert("quitar modal"+ this.nombreNuevoLicor+" dsd "+this.envase);
+    this.claseModal = 'quitar-modal';
+  }
+
+  public nombreDeTipo:any;
+  public rowIdagregar:any;
+  nuevoLicor(nombre,rowid ){
+    this.rowIdagregar=rowid;
+    this.nombreDeTipo=nombre;
+    this.claseModal = 'modal-backgroud';
+  }
+
+  agregarNuevoLicor(){
+    //alert("1: "+this.rowIdagregar+" 2: " +this.nombreNuevoLicor+" 3:"+this.envase);
+    this.agregarCategoriaLicor(this.rowIdagregar,this.nombreNuevoLicor,this.envase);
+    this.quitarModal();
+    this.rowIdagregar=1;
+    this.nombreNuevoLicor="";
+  }// fin de agregarNuevoLicor
 
 
-  agregarCategoriaLicor(idtipo,nombre){
-    this.dbLicor.agregarCategoriaLicor(idtipo,nombre).then(data=>{
+  agregarCategoriaLicor(idtipo,nombre,envase){
+    this.dbLicor.agregarCategoriaLicor(idtipo,nombre,envase).then(data=>{
       if(data){
         this.cargarCategoriasLicores();
         this.mensaje("Categoria agregada exitosamente");

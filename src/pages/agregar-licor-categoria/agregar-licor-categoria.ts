@@ -37,7 +37,7 @@ export class AgregarLicorCategoriaPage {
   agregarTipoLicor(){
     // alert(this.nombre);
     // alert(this.tipo_licor);
-    this.dbLicor.agregarCategoriaLicor(this.tipo_licor,this.nombre).then(data=>{
+    this.dbLicor.agregarCategoriaLicor(this.tipo_licor,this.nombre,1).then(data=>{
       if(data){
         this.mensaje("Categoria agregada exitosamente");
       }
